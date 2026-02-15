@@ -192,4 +192,13 @@ def replace_chain():
         }), 200
 
 
-@app.route('/is_valid', methods_
+@app.route('/is_valid', methods=['GET'])
+def is_valid():
+    valid = blockchain.is_chain_valid(blockchain.chain)
+
+    return jsonify({
+        'valid': valid
+    }), 200
+
+
+app.run(host='0.0.0.0', port=5001)
