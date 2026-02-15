@@ -223,8 +223,9 @@ def create_wallet():
     return jsonify({
         'wallet_address': wallet_address
     }), 200
-    
-    @app.route('/get_balance/<wallet>', methods=['GET'])
+
+
+@app.route('/get_balance/<wallet>', methods=['GET'])
 def get_balance(wallet):
     balance = blockchain.get_balance(wallet)
 
@@ -232,6 +233,7 @@ def get_balance(wallet):
         'wallet': wallet,
         'balance': balance
     }), 200
+
 
     
 app.run(host='0.0.0.0', port=5000)
