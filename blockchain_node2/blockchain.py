@@ -120,14 +120,14 @@ def mine_block():
 
     blockchain.add_transaction(
         sender="Network",
-        receiver="Node 2",
+        receiver="Miner",
         amount=1
     )
 
     block = blockchain.create_block(proof, previous_hash)
 
     return jsonify({
-        'message': 'Block mined on Node 2!',
+        'message': 'Block mined!',
         'block': block
     }), 200
 
@@ -171,7 +171,7 @@ def connect_node():
         blockchain.add_node(node)
 
     return jsonify({
-        'message': 'Nodes connected on Node 2',
+        'message': 'Nodes connected',
         'total_nodes': list(blockchain.nodes)
     }), 201
 
@@ -182,12 +182,12 @@ def replace_chain():
 
     if replaced:
         return jsonify({
-            'message': 'Chain was replaced on Node 2',
+            'message': 'Chain was replaced',
             'new_chain': blockchain.chain
         }), 200
     else:
         return jsonify({
-            'message': 'Chain is already the longest on Node 2',
+            'message': 'Chain is already the longest',
             'chain': blockchain.chain
         }), 200
 
@@ -199,6 +199,5 @@ def is_valid():
     return jsonify({
         'valid': valid
     }), 200
-
 
 app.run(host='0.0.0.0', port=5001)

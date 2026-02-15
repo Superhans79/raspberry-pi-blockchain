@@ -2,12 +2,15 @@ from flask import Flask, jsonify, request
 import hashlib
 import datetime
 import json
+import requests
+from urllib.parse import urlparse
 
 class Blockchain:
 
     def __init__(self):
         self.chain = []
         self.transactions = []
+        self.nodes = set()
         self.create_block(proof=1, previous_hash='0')
 
     def create_block(self, proof, previous_hash):
@@ -31,8 +34,10 @@ class Blockchain:
             hash_operation = hashlib.sha256(
                 str(new_proof**2 - previous_proof**2).encode()
             ).hexdigest()
+
             if hash_operation[:4] == '0000':
                 return new_proof
+
             new_proof += 1
 
     def hash(self, block):
@@ -45,8 +50,13 @@ class Blockchain:
             'receiver': receiver,
             'amount': amount
         })
+
         previous_block = self.get_previous_block()
         return previous_block['index'] + 1
+
+    def add_node(self, address):
+        parsed_url = urlparse(address)
+        self.nodes.add(parsed_url.netloc)
 
     def is_chain_valid(self, chain):
         previous_block = chain[0]
@@ -73,9 +83,34 @@ class Blockchain:
 
         return True
 
-# Web app
+    def replace_chain(self):
+        network = self.nodes
+        longest_chain = None
+        max_length = len(self.chain)
+
+        for node in network:
+            response = requests.get(f'http://{node}/get_chain')
+
+            if response.status_code == 200:
+                length = response.json()['length']
+                chain = response.json()['chain']
+
+                if length > max_length and self.is_chain_valid(chain):
+                    max_length = length
+                    longest_chain = chain
+
+        if longest_chain:
+            self.chain = longest_chain
+            return True
+
+        return False
+
+
+# Flask app
 app = Flask(__name__)
+
 blockchain = Blockchain()
+
 
 @app.route('/mine_block', methods=['GET'])
 def mine_block():
@@ -85,7 +120,7 @@ def mine_block():
 
     blockchain.add_transaction(
         sender="Network",
-        receiver="Your Wallet",
+        receiver="Miner",
         amount=1
     )
 
@@ -96,12 +131,14 @@ def mine_block():
         'block': block
     }), 200
 
+
 @app.route('/get_chain', methods=['GET'])
 def get_chain():
     return jsonify({
         'chain': blockchain.chain,
         'length': len(blockchain.chain)
     }), 200
+
 
 @app.route('/add_transaction', methods=['POST'])
 def add_transaction():
@@ -121,6 +158,40 @@ def add_transaction():
         'message': f'Transaction will be added to block {index}'
     }), 201
 
+
+@app.route('/connect_node', methods=['POST'])
+def connect_node():
+    data = request.get_json()
+    nodes = data.get('nodes')
+
+    if nodes is None:
+        return "No node", 400
+
+    for node in nodes:
+        blockchain.add_node(node)
+
+    return jsonify({
+        'message': 'Nodes connected',
+        'total_nodes': list(blockchain.nodes)
+    }), 201
+
+
+@app.route('/replace_chain', methods=['GET'])
+def replace_chain():
+    replaced = blockchain.replace_chain()
+
+    if replaced:
+        return jsonify({
+            'message': 'Chain was replaced',
+            'new_chain': blockchain.chain
+        }), 200
+    else:
+        return jsonify({
+            'message': 'Chain is already the longest',
+            'chain': blockchain.chain
+        }), 200
+
+
 @app.route('/is_valid', methods=['GET'])
 def is_valid():
     valid = blockchain.is_chain_valid(blockchain.chain)
@@ -128,5 +199,6 @@ def is_valid():
     return jsonify({
         'valid': valid
     }), 200
+    
+    app.run(host='0.0.0.0', port=5000)
 
-app.run(host='0.0.0.0', port=5000)
