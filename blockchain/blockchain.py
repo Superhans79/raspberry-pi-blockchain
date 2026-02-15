@@ -58,7 +58,7 @@ class Blockchain:
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
         
-    def get_balance(self, wallet_address):
+def get_balance(self, wallet_address):
     balance = 0
 
     for block in self.chain:
@@ -69,6 +69,7 @@ class Blockchain:
                 balance -= tx['amount']
 
     return balance
+
 
     def is_chain_valid(self, chain):
         previous_block = chain[0]
