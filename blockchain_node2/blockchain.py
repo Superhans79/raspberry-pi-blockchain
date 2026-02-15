@@ -55,8 +55,8 @@ class Blockchain:
         return previous_block['index'] + 1
 
     def add_node(self, address):
-    parsed_url = urlparse(address)
-    self.nodes.add(parsed_url.netloc)
+        parsed_url = urlparse(address)
+        self.nodes.add(parsed_url.netloc)
 
     def get_balance(self, wallet_address):
         balance = 0
