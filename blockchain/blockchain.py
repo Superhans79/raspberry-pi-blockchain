@@ -57,6 +57,18 @@ class Blockchain:
     def add_node(self, address):
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
+        
+    def get_balance(self, wallet_address):
+    balance = 0
+
+    for block in self.chain:
+        for tx in block['transactions']:
+            if tx['receiver'] == wallet_address:
+                balance += tx['amount']
+            if tx['sender'] == wallet_address:
+                balance -= tx['amount']
+
+    return balance
 
     def is_chain_valid(self, chain):
         previous_block = chain[0]
@@ -104,6 +116,8 @@ class Blockchain:
             return True
 
         return False
+
+
 
 
 # Flask app
@@ -208,6 +222,16 @@ def create_wallet():
     return jsonify({
         'wallet_address': wallet_address
     }), 200
+    
+    @app.route('/get_balance/<wallet>', methods=['GET'])
+def get_balance(wallet):
+    balance = blockchain.get_balance(wallet)
+
+    return jsonify({
+        'wallet': wallet,
+        'balance': balance
+    }), 200
+
     
 app.run(host='0.0.0.0', port=5000)
 
