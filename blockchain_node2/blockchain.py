@@ -200,4 +200,13 @@ def is_valid():
         'valid': valid
     }), 200
 
+@app.route('/create_wallet', methods=['GET'])
+def create_wallet():
+    private_key = str(datetime.datetime.now())
+    wallet_address = hashlib.sha256(private_key.encode()).hexdigest()
+
+    return jsonify({
+        'wallet_address': wallet_address
+    }), 200
+
 app.run(host='0.0.0.0', port=5001)
