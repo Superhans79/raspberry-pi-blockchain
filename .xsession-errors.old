@@ -1,0 +1,37 @@
+Xsession: X session started for gillypi at Fri 13 Feb 20:16:47 GMT 2026
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+xrdb: Can't open display ''
+xhost:  unable to open display ""
+dbus-update-activation-environment: setting USER=gillypi
+dbus-update-activation-environment: setting TEXTDOMAIN=pam_chksshpwd
+dbus-update-activation-environment: setting XDG_SESSION_TYPE=wayland
+dbus-update-activation-environment: setting HOME=/home/gillypi
+dbus-update-activation-environment: setting DESKTOP_SESSION=rpd-labwc
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting LOGNAME=gillypi
+dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
+dbus-update-activation-environment: setting LANG=en_GB.UTF-8
+dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=rpd-labwc
+dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/gillypi
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting GDMSESSION=rpd-labwc
+dbus-update-activation-environment: setting NO_AT_BRIDGE=1
+dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+dbus-update-activation-environment: setting PWD=/home/gillypi
+no profile matched
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+
+(polkit-mate-authentication-agent-1:1418): GLib-CRITICAL **: 20:16:53.388: g_variant_new_string: assertion 'string != NULL' failed
+
+(polkit-mate-authentication-agent-1:1418): polkit-mate-1-WARNING **: 20:16:53.391: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+** Message: 20:16:55.153: batt: battery 0 not found
+** Message: 20:16:55.520: up: Checking for updates
+** Message: 20:17:03.028: up: Cache updated - comparing versions
+** Message: 20:44:52.714: up: Check complete - 138 updates available
+00:00:45.385 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+00:00:45.385 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD

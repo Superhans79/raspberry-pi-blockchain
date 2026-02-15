@@ -1,0 +1,50 @@
+Xsession: X session started for gillypi at Sat 14 Feb 08:51:46 GMT 2026
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+xrdb: Can't open display ''
+xhost:  unable to open display ""
+dbus-update-activation-environment: setting USER=gillypi
+dbus-update-activation-environment: setting TEXTDOMAIN=pam_chksshpwd
+dbus-update-activation-environment: setting XDG_SESSION_TYPE=wayland
+dbus-update-activation-environment: setting HOME=/home/gillypi
+dbus-update-activation-environment: setting DESKTOP_SESSION=rpd-labwc
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting LOGNAME=gillypi
+dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
+dbus-update-activation-environment: setting LANG=en_GB.UTF-8
+dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=rpd-labwc
+dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/gillypi
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting GDMSESSION=rpd-labwc
+dbus-update-activation-environment: setting NO_AT_BRIDGE=1
+dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+dbus-update-activation-environment: setting PWD=/home/gillypi
+no profile matched
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+
+(polkit-mate-authentication-agent-1:1422): GLib-CRITICAL **: 08:51:52.596: g_variant_new_string: assertion 'string != NULL' failed
+
+(polkit-mate-authentication-agent-1:1422): polkit-mate-1-WARNING **: 08:51:52.599: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+** Message: 08:51:54.314: batt: battery 0 not found
+** Message: 08:51:54.687: up: Checking for updates
+** Message: 08:51:58.336: up: Error updating cache - W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. OpenPGP signature verification failed: http://deb.debian.org/debian trixie-updates InRelease: Sub-process /usr/bin/sqv returned an error code (1), error message is: Verifying signature:            Not live until 2026-02-15T01:38:42Z Verifying signature:            Not live until 2026-02-15T01:39:03Z
+E: http://deb.debian.org/debian trixie-updates InRelease is not (yet) available (Sub-process /usr/bin/sqv returned an error code (1), error message is: Verifying signature:            Not live until 2026-02-15T01:38:42Z Verifying signature:            Not live until 2026-02-15T01:39:03Z)
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. OpenPGP signature verification failed: http://deb.debian.org/debian-security trixie-security InRelease: Sub-process /usr/bin/sqv returned an error code (1), error message is: Verifying signature:            Not live until 2026-02-15T00:55:00Z Verifying signature:            Not live until 2026-02-15T00:55:00Z
+E: http://deb.debian.org/debian-security trixie-security InRelease is not (yet) available (Sub-process /usr/bin/sqv returned an error code (1), error message is: Verifying signature:            Not live until 2026-02-15T00:55:00Z Verifying signature:            Not live until 2026-02-15T00:55:00Z)
+
+00:00:50.592 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+00:00:50.592 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+00:42:01.593 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+00:42:01.593 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+01:02:43.593 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+01:02:43.593 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:07:00.505 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:07:00.505 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:23:59.592 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:23:59.593 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:25:24.939 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
+02:25:24.939 [ERROR] [types/wlr_linux_dmabuf_v1.c:1243] Failed to get backend DRM FD
